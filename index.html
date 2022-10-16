@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/calibro full.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Tolerances Calculator</title>
+</head>
+
+<body>
+    <section>
+
+        <!--intro scelta lingua-->
+        <div class="lingua">
+            <h1>Tolerances Calculator</h1>
+            <button id="lingIT" onclick="animScherm()"><img src="img/italian-flag-2.gif"
+                    alt="bandiera italiana"></button>
+            <button id="lingEN" onclick="animScherm()"><img src="img/british-flag-2.gif" alt="british flag"></button>
+        </div>
+
+        <!--schermata-->
+        <div class="schermata">
+
+            <!--inputs-->
+            <div class="inputs">
+                <!--input tolleranza foro-->
+                <div class="inpForo">
+                    <span class="labelForo">Foro</span>
+                    <div class="selectForo">
+                        <select class="lettForo" onchange="unlockForo()">
+                            <option>-</option>
+                         <!--   <option>A</option>
+                            <option>B</option> -->
+                        </select>
+                        <select class="numForo" disabled onchange="valueITForo()">
+                            <option>-</option>
+                        <!--    <option>1</option>
+                            <option>2</option> -->
+                        </select>
+                    </div>
+                </div>
+                <!--input dimensione da verificare-->
+                <div class="inpDimensione">
+                    <span class="labelDimensione">Dimensione</span>
+                    <input type="number" value="" name="dimensione" id="dimensione" placeholder="[mm]">
+                </div>
+                <!--input tolleranza albero-->
+                <div class="inpAlbero">
+                    <span class="labelAlbero">Albero</span>
+                    <div class="selectAlbero">
+                        <select class="lettAlbero" onchange="unlockAlbero()">
+                            <option>-</option>
+                          <!--  <option>a</option>
+                            <option>b</option> -->
+                        </select>
+                        <select class="numAlbero" disabled onchange="valueITAlb()">
+                            <option>-</option>
+                         <!--   <option>1</option>
+                            <option>2</option> -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--output valori foro-->
+            <div class="outForo">
+                <span class="titolForo">Foro [mm]</span>
+                <div class="infoTollForo">
+                    <div class="descrizione">
+                        <span>Dimensione</span>
+                        <span>Limite Superiore</span>
+                        <span>Limite Inferiore</span>
+                        <span>Scostamento Sup.</span>
+                        <span>Scostamento Inf.</span>
+                        <span>Ampiezza Tolleranza</span>
+                    </div>
+                    <div class="valori">
+                        <span id="dimForo">---</span>
+                        <span id="limSupForo">---</span>
+                        <span id="limInfForo">---</span>
+                        <span id="scostSupForo">---</span>
+                        <span id="scostInfForo">---</span>
+                        <span id="ampTollForo">---</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--output valori Albero-->
+            <div class="outAlbero">
+                <span class="titolAlbero">Albero [mm]</span>
+                <div class="infoTollAlbero">
+                    <div class="descrizione">
+                        <span>Dimensione</span>
+                        <span>Limite Superiore</span>
+                        <span>Limite Inferiore</span>
+                        <span>Scostamento Sup.</span>
+                        <span>Scostamento Inf.</span>
+                        <span>Ampiezza Tolleranza</span>
+                    </div>
+                    <div class="valori">
+                        <span id="dimAlbero">---</span>
+                        <span id="limSupAlbero">---</span>
+                        <span id="limInfAlbero">---</span>
+                        <span id="scostSupAlbero">---</span>
+                        <span id="scostInfAlbero">---</span>
+                        <span id="ampTollAlbero">---</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--pulsanti-->
+            <div class="pulsanti">
+                <button id="back" onclick="animIntro()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                        <title>Arrow Undo</title>
+                        <path d="M240 424v-96c116.4 0 159.39 33.76 208 96 0-119.23-39.57-240-208-240V88L64 256z"
+                            fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" />
+                    </svg>
+                </button>
+                <button id="info" onclick="info()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                        <title>Information</title>
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="40" d="M196 220h64v172" />
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
+                            stroke-width="40" d="M187 396h138" />
+                        <path d="M256 160a32 32 0 1132-32 32 32 0 01-32 32z" />
+                    </svg></button>
+                <button id="reset" onclick="reset()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                        <title>Reset</title>
+                        <path d="M320 146s24.36-12-64-12a160 160 0 10160 160" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" />
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="32" d="M256 58l80 80-80 80" />
+                    </svg>
+                </button>
+                <button id="gplay"><a href="https://play.google.com/store/apps/dev?id=7698347012642487662"
+                        title="Google Play" target="_blank">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"
+                            enable-background="new 0 0 1000 1000" xml:space="preserve">
+                            <g>
+                                <path
+                                    d="M200.5,963.3l454-256.3l-97.4-108L200.5,963.3z M34.6,20c-5.2,9.4-8.4,20.1-8.4,32.1v895.9c0,16.6,6.2,30.8,15.6,42.1l451.7-461.5L34.6,20z M943,455.8l-158.3-89.4L623.5,531.2l115.6,128.1L943,544.2c18.6-9.4,28.8-26.4,30.8-44.2C971.8,482.2,961.6,465.2,943,455.8z M699.3,318.2L153.2,10l406.6,450.7L699.3,318.2z" />
+                            </g>
+                        </svg></a></button>
+               <!-- <button id="convert">To Inch</button> -->
+            </div>
+
+            <!-- check box -->
+            <div class="checkbox">
+                <input type="checkbox" name="inglese" id="inglese" value="inglese">
+                <input type="checkbox" name="inch" id="inch" value="inch">
+            </div>
+        </div>
+
+    </section>
+
+    <!--script-->
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="js/matrici.js"></script>
+    <script src="js/instanceVariable.js"></script>
+    <script src="js/array_gradoIT.js"></script>
+    <script src="js/array_deltaIT.js"></script>
+    <script src="js/array_albero.js"></script>
+    <script src="js/array_foro.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Calibri', sans-serif;
+    font-weight: bold;
+}
+
+html {
+    scrollbar-width: none;
+    /*implementazione per firefox*/
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+section {
+    height: 100vh;
+    width: 600px;
+    margin: 0 auto;
+    position: relative;
+    background-image: url(../img/sfondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    display: flex;
+}
+
+/* inizio stile per intro */
+.lingua {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.lingua h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    background: linear-gradient(145deg, #f60, #ff7a22, #f60);
+    color: #00F;
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.lingua button {
+    width: 250px;
+    margin: 50px 0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+}
+
+#lingIT {
+    background: linear-gradient(145deg, #0f0, #fff, #f00);
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+}
+
+#lingEN {
+    background: linear-gradient(145deg, #00F, #fff, #f00, #fff, #00F, #fff, #f00);
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+}
+
+#lingIT:active,
+#lingEN:active {
+    box-shadow: inset 2px 2px 0px #7d7c7e80;
+}
+
+.lingua button img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* fine stile per intro */
+
+/* inizio stile per schermata */
+.schermata {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+}
+
+/*inputs*/
+.inputs {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.labelForo,
+.labelDimensione,
+.labelAlbero,
+.titolForo,
+.titolAlbero {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    width: 100%;
+    border-radius: 5px;
+    height: 25px;
+    text-align: center;
+    align-items: center;
+}
+
+.labelForo,
+.selectForo select,
+.titolForo,
+.infoTollForo {
+    background: linear-gradient(145deg, #00cc29, #00ff33, #00cc29);
+    color: #00F;
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+}
+
+.labelDimensione,
+.inputs .inpDimensione input {
+    background: linear-gradient(145deg, #f60, #ff7a22, #f60);
+    color: #00F;
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+}
+
+.labelAlbero,
+.selectAlbero select,
+.titolAlbero,
+.infoTollAlbero {
+    background: linear-gradient(145deg, #00b1dd, #0cf, #00b1dd);
+    color: #00F;
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+}
+
+.inputs .inpForo,
+.inputs .inpAlbero {
+    position: relative;
+    display: block;
+    width: 25%;
+}
+
+select {
+    height: 60px;
+    font-size: 1.5rem;
+    width: 45%;
+    justify-content: space-between;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    appearance: none;
+    text-align: center;
+    align-items: center;
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+    outline: none;
+    cursor: pointer;
+}
+
+select:active {
+    box-shadow: inset 2px 2px 0px #7d7c7e80;
+}
+
+.inputs .inpDimensione {
+    position: relative;
+    display: block;
+    width: 35%;
+}
+
+.inputs .inpDimensione input {
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    -moz-appearance: textfield;
+}
+
+.inputs .inpDimensione input:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 0px #7d7c7e80;
+}
+
+/*per far sparire le frecce per variare i numeri*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+
+}
+
+/*output valori*/
+.outForo,
+.outAlbero {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.titolForo,
+.titolAlbero {
+    height: 30px;
+}
+
+.infoTollForo,
+.infoTollAlbero {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0 25px;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+.descrizione,
+.valori {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+
+.descrizione {
+    width: 60%;
+}
+
+.valori {
+    width: 35%;
+}
+
+.descrizione span {
+    justify-content: left;
+    text-align: left;
+}
+
+/*pulsanti*/
+.pulsanti {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.pulsanti button {
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: inset -2px -2px 0px #1c1c1c80;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-size: 1.3rem;
+    padding: 10px;
+    color: #00F;
+}
+
+.pulsanti button:active {
+    box-shadow: inset 2px 2px 0px #7d7c7e80;
+    color: #00b1dd;
+}
+
+.pulsanti button svg {
+    fill: #00F;
+}
+
+.pulsanti button:active svg {
+    fill: #00b1dd;
+    color: #00b1dd;
+
+}
+
+.pulsanti button:first-child {
+    background: linear-gradient(145deg, #aa0086, #f1c, #aa0086);
+}
+
+.pulsanti button:nth-child(2) {
+    background: linear-gradient(145deg, #bba200, #ffdd00, #bba200);
+}
+
+.pulsanti button:nth-child(3) {
+    background: linear-gradient(145deg, #ff836e, #ff2d08, #ff836e);
+}
+
+/*
+.pulsanti button:nth-child(4){
+    background: linear-gradient(145deg, #900, #f00, #900);
+}
+*/
+.pulsanti button:last-child {
+    background: linear-gradient(145deg, #20e23b, #6bec7d, #20e23b);
+}
+
+/*checkbox*/
+.checkbox {
+    visibility: hidden;
+}
+
+@media screen and (max-width:600px) {
+    section {
+        width: auto;
+    }
+
+    .lingua button {
+        width: 200px;
+        margin: 50px 0;
+    }
+
+    .lingua h1 {
+        font-size: 1.7rem;
+    }
+
+    .inputs .inpDimensione input,
+    select,
+    .labelForo,
+    .labelDimensione,
+    .labelAlbero,
+    .titolForo,
+    .titolAlbero,
+    .descrizione,
+    .valori {
+        font-size: 1.2rem;
+    }
+
+    .pulsanti button {
+        height: 60px;
+        width: 60px;
+        font-size: 1rem;
+    }
+
+    .inputs .inpForo,
+    .inputs .inpAlbero {
+        width: 30%;
+        text-align: center;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width:420px) {
+    .inputs {
+        margin-bottom: 10px;
+    }
+    .labelForo,
+    .labelDimensione,
+    .labelAlbero,
+    .titolForo,
+    .titolAlbero,
+    .descrizione,
+    .valori {
+        font-size: 1rem;
+    }
+
+    .pulsanti button {
+        margin-top: 5px;
+    }
+    .titolForo,
+    .titolAlbero {
+        height: 25px;
+    }
+    
+    .infoTollForo,
+    .infoTollAlbero {
+        margin: 5px 0 10px;
+        padding: 5px 0;
+    }
+}
